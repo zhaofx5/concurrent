@@ -23,6 +23,7 @@ package com.zhaofx.learn.thread;
 public class TestMain {
 	public static void main(String[] args) {
 		System.out.println("This is my github first file.");
+		System.out.println("Now is local branch.");
 	}
 
 }
