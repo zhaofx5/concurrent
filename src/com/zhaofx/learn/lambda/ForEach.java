@@ -98,4 +98,7 @@ public class ForEach {
 				.forEach((p) -> System.out.printf("%s %s; ", p.getFirstName(), p.getLastName()));
 	}
 
+	private static void test() {
+		System.out.println();
+	}
 }
