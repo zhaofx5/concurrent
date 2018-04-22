@@ -11,8 +11,6 @@ public class ThreadDemo3 {
 
 	private static final int roundingMode = BigDecimal.ROUND_HALF_EVEN;
 
-	private static BigDecimal result;
-
 	private static int i = 0;
 
 	public static void main(String[] args) {
