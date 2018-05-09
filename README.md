@@ -32,8 +32,40 @@ CAS 包含了三个操作数：
 
 6:线程池 shutdown后无法提交新的线程 , awaitTermination后续是可以继续提交任务的
 
-7:lock 比   synchronized 操作灵活 , 提供读写锁  多个线程操作的话不会阻塞读锁 , 只会阻塞锁
+7:线程池参数
 
+     * @param corePoolSize the number of threads to keep in the pool, even
+     *        if they are idle, unless {@code allowCoreThreadTimeOut} is set
+        ------核心线程数:即使没有任务执行也一直运行在线程池的线程数量,除非设置了核心线程的超时时间
+     * @param maximumPoolSize the maximum number of threads to allow in the
+     *        pool
+        ------最大线程数:线程池所允许存在的最大线程数目,(当线程数>=corePoolSize，且任务队列已满时。线程池会创建新线程来处理任务 , 但是新建的线程不能超过最大值)
+     * @param keepAliveTime when the number of threads is greater than
+     *        the core, this is the maximum time that excess idle threads
+     *        will wait for new tasks before terminating.
+        ------超出核心线程数量的空闲现场的存活时间
+     * @param unit the time unit for the {@code keepAliveTime} argument
+        ------时间单位
+     * @param workQueue the queue to use for holding tasks before they are
+     *        executed.  This queue will hold only the {@code Runnable}
+     *        tasks submitted by the {@code execute} method.
+      --------用于保存待执行线程的队列,可以为这个队列设置大小
+     * @param threadFactory the factory to use when the executor
+     *        creates a new thread
+     ---------用来创建线程的线程工厂
+     * @param handler the handler to use when execution is blocked
+     *        because the thread bounds and queue capacities are reached
+     ---------用于处理线程添加失败的异常
+             - AbortPolicy 丢弃任务，抛运行时异常
+             - CallerRunsPolicy 执行任务
+             - DiscardPolicy 忽视，什么都不会发生
+             - DiscardOldestPolicy 从队列中踢出最先进入队列（最后一个执行）的任务
+
+8:lock 比   synchronized 操作灵活 , 提供读写锁  多个线程操作的话不会阻塞读锁 , 只会阻塞锁
+
+9:BlockingQueue
+  LinkedBlockingQueue  基于链表实现
+  ArrayBlockingQueue   基于数组实现
 
 
 
